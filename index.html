@@ -18,9 +18,31 @@
            
       </span>
       </form>
-      <script> 
+      <div>
+        <button onclick= "subscribe()" ">Push Notificaction !</button>
+     
+      </div>
+  
+     <script>
+       addEventListener('load', async() => {
+        let sw= await navigator.serviceWorker.register('./sw');
+        console.log(sw);
+  
+       });
+   
+    async function subscribe(){
+        
+        let sw = await navigator.serviceWorker.ready;
+        let push = await sw.pushManager.subscribe({
+          userVisibleOnly:true,
+          
+          applicationServerKey:'BBxmgS8PYczFrz5Ajx8AF47onpaBqkkwkd2LYKh_vFI7usN0vC0bkm4P07szWjzTUXeGt2rdxcQ2G4F7mT3k7xE'
+        })
+        console.log(JSON.stringify(push))
+    }
+     </script> 
       
-}
+
     </div>
   </body>
 </html>
