@@ -16,4 +16,3 @@ auth:"LH3fBUa0BUIUR2VRhxqiyw"}}
   push.sendNotification(sub, 'test message')
 
 
-console.log(vapidKeys);
